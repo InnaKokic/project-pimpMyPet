@@ -45,6 +45,17 @@ app.get("/products", (req, res) => {
   }
 });
 
+//Admin se lagersaldo för varje produkt
+app.get("/admin/products", (req, res) => {
+  cn.query(
+    `SELECT name, stock
+    FROM products`,
+    (err, data) => {
+      res.send(data);
+    },
+  );
+});
+
 //Hämta en specifik produkt
 app.get("/products/:id", (req, res) => {
   cn.query("SELECT * FROM products WHERE product_id = ?", req.params.id, (err, data) => {
@@ -84,6 +95,25 @@ app.get("/orders/customer/:id", (req, res) => {
     (err, data) => {
       if (!customerId) {
         return res.status(400).send("Missing customer_id");
+      }
+      res.send(data);
+    },
+  );
+});
+
+//Hämta info om en specifik order
+app.get("/orders/:id", (req, res) => {
+  const orderId = req.params.id;
+  cn.query(
+    `SELECT p.name, op.price_at_purchase, op.quantity 
+    FROM orders o
+    JOIN orders_products op ON op.order_id = o.order_id
+    JOIN products p ON op.product_id = p.product_id 
+    WHERE o.order_id = ?`,
+    [req.params.id],
+    (err, data) => {
+      if (!orderId) {
+        return res.status(400).send("Missing order_id");
       }
       res.send(data);
     },
@@ -184,7 +214,7 @@ app.post("/admin/add-product", (req, res) => {
 
 /* --- PATCH endpoints ----- */
 
-//8. Uppdatera produktinformation på en viss produkt
+//Uppdatera produktinformation på en viss produkt
 app.patch("/admin/edit-product/:id", (req, res) => {
   cn.query(
     `UPDATE products SET ?
