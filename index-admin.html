@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+      <h1>Pimp My Pet - Admin View</h1>
+    </header>
+    <main>
+        <ul id="options">
+        <li><button onclick="getOrders()" class="category-button">View all orders</button></li>
+        <div id="orders"></div>
+        <li><button onclick="stockInfo()" class="category-button">Stock information</button></li>
+        <li><button onclick="showAddProduct()" class="category-button">Add product</button></li>
+        <li><button onclick="showEditProduct()" class="category-button">Edit product</button></li>
+        <li><button onclick="showDeleteProduct()" class="category-button">Remove product</button></li>
+        </main>
+    <script src="admin.js"></script>
+</body>
+</html>

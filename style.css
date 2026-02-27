@@ -4,20 +4,219 @@
   padding: 0;
 }
 
+/* -- Fonter -- */
+.chewy-regular {
+  font-family: "Chewy", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.shadows-into-light-two-regular {
+  font-family: "Shadows Into Light Two", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  font-family: "Shadows Into Light Two", cursive;
+  --background-color: #ffead2;
+  --dark-orange: #ff7640;
+  --light-orange: #ffb14c;
+}
+
 body {
   height: 100vh;
   width: 100vw;
+  background: var(--background-color);
 }
 
-h1 {
-  text-align: center;
-  margin: 2rem;
+/* --- Header styling --- */
+header {
+  min-width: 100%;
 }
 
-#main-content {
+#header-logo {
+  height: 150px;
+}
+#header-wreapper {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 25px;
+}
+
+#hero-wrapper {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  justify-self: center; /* horisontellt */
+  align-self: center;
+  align-items: start;
+  margin: 30px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#search-wrapper {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  width: 85%;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+#search-bar {
+  border: none;
+  background: none;
+  width: 100%;
+  padding: 8px;
+}
+
+/* Tar bort den blåa linjen som uppstår när input är aktiv */
+textarea:focus,
+input:focus {
+  outline: none;
+}
+#search-icon {
+  height: 25px;
+}
+#icon-wrapper {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  gap: 10px;
+}
+.icon {
+  height: 30px;
+}
+
+/* --- Hero styling --- */
+
+#hero-img {
+  width: 78rem;
+  position: relative;
+  border-radius: 23px;
+
+  overflow: hidden;
+  height: 430px;
+  object-fit: cover;
+}
+
+#hero-btn {
+  margin-top: 67px;
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  gap: 5px;
+  border-radius: 25px;
+  width: 290px;
+  height: 55px;
+  background-color: var(--dark-orange);
+  border: 6px solid var(--light-orange);
+  font-family: "Chewy", system-ui;
+  font-size: 20px;
+  box-shadow: inset;
+  cursor: pointer;
+}
+
+#hero-btn:hover {
+  /* background-color: var(--light-orange);
+  border: 6px solid var(--dark-orange); */
+  color: var(--background-color);
+}
+
+/* --- Navbar styling ---- */
+
+#navbar-wrapper {
+  background-color: var(--dark-orange);
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.category-button {
+  font-family: "Chewy", system-ui;
+  font-size: 16px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.category-button:hover {
+  color: var(--background-color);
+}
+
+/* ---- Produktkort styling ---- */
+.product-card {
+  border-radius: 8px;
+  background-color: white;
+  width: 80%;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.product-img {
+  width: 100%;
+  height: 200px;
+  justify-self: center;
+  align-self: center;
+}
+
+.card-header {
+  font-family: "Shadows Into Light Two";
+  text-align: start;
+  word-wrap: normal;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.price {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.details-btn {
+  border: 1px solid var(--light-orange);
+  background-color: var(--background-color);
+  border-radius: 10px;
+  font-family: "Shadows Into Light Two", cursive;
+  padding: 6px;
+  font-size: 16px;
+}
+
+.details-btn:hover {
+  background-color: var(--dark-orange);
+}
+
+/* ---- Produktgalleri styling ----- */
+
+.products-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  column-gap: 20px;
+  row-gap: 30px;
+  padding: 40px;
 }
 
 #category-list {
@@ -27,12 +226,54 @@ h1 {
   list-style: none;
 }
 
-.category-button {
-  width: 100%;
-  padding: 10px;
+/* ---- Details page styling ---- */
+
+.details-page {
+  display: flex;
+  flex-direction: row;
+  padding: 40px;
+  justify-content: space-between;
+  gap: 50px;
 }
 
-.card-container {
+.product-detail-img {
+  height: 400px;
+  border-radius: 30px;
+  display: flex;
+}
+.details-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  padding: 30px;
+}
+.details-wrapper h1 {
+  font-size: 50px;
+}
+.details-wrapper h2 {
+  font-size: 35px;
+}
+
+.details-wrapper p {
+  font-size: 25px;
+}
+
+.produkt-besk {
+  font-family: "Chewy", system-ui;
+}
+
+#footer-image {
+  margin-top: 100px;
+  position: relative;
+  max-width: 100%;
+}
+footer {
+  padding: 30px;
+}
+
+/* .card-container {
   display: flex;
   flex-direction: column;
   height: 200px;
@@ -40,13 +281,4 @@ h1 {
   border: 1px solid black;
   justify-content: space-between;
   padding: 5px;
-}
-
-.card-header {
-  text-align: center;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-}
+} */

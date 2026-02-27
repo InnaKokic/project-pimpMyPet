@@ -30,19 +30,6 @@ app.get("/admin/products", (req, res) => {
   );
 });
 
-//Hämta en specifik produkt
-app.get("/products/:id", (req, res) => {
-  if (isNaN(req.params.id)) {
-    return res.status(400).send("ID must be a number");
-  }
-  cn.query("SELECT * FROM products WHERE product_id = ?", req.params.id, (err, data) => {
-    if (err) {
-      return res.status(500).send(err.sqlMessage);
-    }
-    res.send(data);
-  });
-});
-
 // Hämta alla ordrar
 app.get("/admin/orders", (req, res) => {
   cn.query(`SELECT * FROM orders`, (err, data) => {
@@ -137,7 +124,7 @@ app.get("/products", (req, res) => {
     cn.query(
       `SELECT 
         p.product_id, 
-        p.name AS product,
+        p.name,
         p.price,
         p.stock,
         p.description,
@@ -170,6 +157,32 @@ app.get("/products", (req, res) => {
       res.send(data);
     });
   }
+});
+
+//Hämta en specifik produkt
+app.get("/products/:id", (req, res) => {
+  if (isNaN(req.params.id)) {
+    return res.status(400).send("ID must be a number");
+  }
+  cn.query("SELECT * FROM products WHERE product_id = ?", req.params.id, (err, data) => {
+    if (err) {
+      return res.status(500).send(err.sqlMessage);
+    }
+    res.send(data);
+  });
+});
+
+//Hämta alla kategorier
+app.get("/categories", (req, res) => {
+  cn.query(
+    `SELECT category_id, name 
+    FROM categories 
+    ORDER BY name`,
+    (err, data) => {
+      if (err) return res.status(500).send(err.sqlMessage);
+      res.send(data);
+    },
+  );
 });
 
 //Filtrera produkter efter kategori

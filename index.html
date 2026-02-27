@@ -3,31 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&family=Shadows+Into+Light+Two&display=swap"
+      rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Pimp My Pet</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <h1>Pimp My Pet</h1>
-      <div>
-        <input type="text" id="search-bar" placeholder="Sök produkter..." />
-        <button id="search-button">Search</button>
+      <div id="header-wreapper">
+        <a href="index.html">
+          <img id="header-logo" src="assets/icons/PimpMyPet-logo.png" alt="logo" />
+        </a>
+        <div id="search-wrapper">
+          <input type="text" id="search-bar" placeholder="Sök produkter..." />
+          <button class="icon-button" id="search-button">
+            <img id="search-icon" src="assets/icons/search-icon.png" alt="" />
+          </button>
+        </div>
+        <div id="icon-wrapper">
+          <a class="icon-button" href="index-admin.html">
+            <img class="icon" id="admin-icon" src="assets/icons/admin-icon.png" alt="admin" />
+          </a>
+          <a class="icon-button" href="http://">
+            <img class="icon" id="cart-icon" src="assets/icons/cart-icon.png" alt="admin" />
+          </a>
+        </div>
       </div>
+      <nav>
+        <div id="navbar-wrapper">
+          <!--innehåll hämtas från js-->
+        </div>
+      </nav>
     </header>
+
     <main id="main-content">
-      <ul id="category-list">
-        <li><button id="btn-category1" data-id="1" class="category-button">Hund - Mat & Snacks</button></li>
-        <li><button id="btn-category2" data-id="2" class="category-button">Katt - Mat & Snacks</button></li>
-        <li><button id="btn-category3" data-id="3" class="category-button">Leksaker</button></li>
-        <li><button id="btn-category4" data-id="4" class="category-button">Tillbehör</button></li>
-        <li><button id="btn-category5" data-id="5" class="category-button">Pälsvård & Hygien</button></li>
-        <li><button id="btn-category6" data-id="6" class="category-button">Hälsa & Kosttillskott</button></li>
-        <li><button id="btn-category10" data-id="10" class="category-button">Akvarium & Fisk</button></li>
-        <li><button id="btn-category11" data-id="11" class="category-button">Fågel</button></li>
-        <li><button id="btn-category12" data-id="12" class="category-button">Presentkort</button></li>
-      </ul>
+      <section id="gallery">
+        <!-- Produkterna hämtas in här från JavaScript -->
+
+        <div id="hero-wrapper">
+          <img id="hero-img" src="assets/images/hero-img.png" alt="" />
+          <button id="hero-btn">Upptäck vårt sortiment <img src="assets/icons/icon-arrow-right.png" alt="" /></button>
+        </div>
+      </section>
     </main>
+    <img id="footer-image" src="assets/images/Line.png" alt="" />
+    <footer></footer>
     <script src="app.js"></script>
-    <script src="server.js"></script>
   </body>
 </html>
+
+<!-- <ul id="category-list">
+          <li><button id="btn-category1" data-id="1" class="category-button">Hund - Mat & Snacks</button></li>
+          <li><button id="btn-category2" data-id="2" class="category-button">Katt - Mat & Snacks</button></li>
+          <li><button id="btn-category3" data-id="3" class="category-button">Leksaker</button></li>
+          <li><button id="btn-category4" data-id="4" class="category-button">Tillbehör</button></li>
+          <li><button id="btn-category5" data-id="5" class="category-button">Pälsvård & Hygien</button></li>
+          <li><button id="btn-category6" data-id="6" class="category-button">Hälsa & Kosttillskott</button></li>
+          <li><button id="btn-category10" data-id="10" class="category-button">Akvarium & Fisk</button></li>
+          <li><button id="btn-category11" data-id="11" class="category-button">Fågel</button></li>
+          <li><button id="btn-category12" data-id="12" class="category-button">Presentkort</button></li>
+        </ul> -->
