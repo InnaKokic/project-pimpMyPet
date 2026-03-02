@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* -- Fonter -- */
+.chewy-regular {
+  font-family: "Chewy", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.shadows-into-light-two-regular {
+  font-family: "Shadows Into Light Two", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  font-family: "Shadows Into Light Two", cursive;
+  --background-color: #ffead2;
+  --dark-orange: #ff7640;
+  --light-orange: #ffb14c;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: var(--background-color);
+}
+
+.header-logo {
+  height: 150px;
+}
+
+main {
+  justify-self: center;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#admin-main {
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#store-btn {
+  margin: 30px;
+}
+
+#admin-nav {
+  background-color: var(--dark-orange);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  padding: 30px;
+  gap: 60px;
+}
+
+#navBtn-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.admin-button {
+  border: 5px solid var(--light-orange);
+  background-color: white;
+  border-radius: 5px;
+  width: 180px;
+  padding: 13px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.admin-button:hover {
+  background-color: var(--light-orange);
+}
+
+.admin-home {
+  margin-top: 150px;
+}
+.admin-home-text {
+  font-family: "Chewy", system-ui;
+  font-size: 48px;
+}
+
+.card {
+  margin: 30px;
+  border: 2px solid var(--dark-orange);
+  padding: 10px;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  width: 100vh;
+}
+
+#productName,
+#productPrice,
+#productStock,
+#productDesc,
+#deleteProductId,
+#editProductId,
+#editName,
+#editPrice,
+#editStock,
+#editDesc {
+  border: 2px solid var(--dark-orange);
+  padding: 15px;
+  margin: 10px;
+  width: 300px;
+}
+
+button {
+  border: none;
+  background-color: var(--dark-orange);
+  width: 300px;
+  padding: 15px;
+  margin: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.response-text .ok {
+  color: green;
+}
+.response-text .fail {
+  color: red;
+}

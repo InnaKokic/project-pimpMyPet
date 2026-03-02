@@ -8,10 +8,10 @@ function setupPage() {
   const main = document.querySelector("main");
   main.innerHTML = "";
 
-  const backButton = document.createElement("button");
-  backButton.innerText = "← Tillbaka";
-  backButton.onclick = goBack;
-  main.appendChild(backButton);
+  // const backButton = document.createElement("button");
+  // backButton.innerText = "← Tillbaka";
+  // backButton.onclick = goBack;
+  // main.appendChild(backButton);
 
   return main;
 }
@@ -43,9 +43,9 @@ async function showResult(response, containerId) {
   const text = await response.text();
 
   if (response.ok) {
-    container.innerHTML = `<p style="color:green">${text}</p>`;
+    container.innerHTML = `<p class="response-text ok">${text}</p>`;
   } else {
-    container.innerHTML = `<p style="color:red">${text}</p>`;
+    container.innerHTML = `<p class="response-text fail">${text}</p>`;
   }
 }
 
@@ -66,9 +66,9 @@ async function getOrders() {
     card.className = "card";
 
     card.innerHTML = `
-            <h3>Order #${order.order_id}</h3>
-            <p>Datum: ${order.date}</p>
-            <p>Kund-ID: ${order.customer_id}</p>
+            <h3 class= "card-text order-id order-text">Order #${order.order_id}</h3>
+            <p class="order-date order-text">Datum: ${order.date}</p>
+            <p class = "order-customer order-text">Kund-ID: ${order.customer_id}</p>
         `;
 
     container.appendChild(card);
@@ -84,7 +84,7 @@ async function stockInfo() {
 
   const main = setupPage();
 
-  createTitle(main, "Lagersaldo");
+  createTitle(main, "Lagerstatus för alla produkter");
 
   const container = document.createElement("div");
 
@@ -94,8 +94,14 @@ async function stockInfo() {
     card.className = "card";
 
     card.innerHTML = `
-            <h3>Produkt: ${product.name}</h3>
-            <p>Antal i lager: ${product.stock}</p>
+
+
+   
+        <div class ="card-wrapper"> 
+        <p>Produkt ID: ${product.product_id}</p>
+            <h3 class="card-text"> ${product.name}</h3>
+            <p class = "card-text">Antal i lager: ${product.stock}</p>
+        </div>
         `;
 
     container.appendChild(card);
@@ -109,7 +115,6 @@ function showAddProduct() {
   const main = setupPage();
 
   createTitle(main, "Lägg till ny produkt");
-
   createInput(main, "productName", "Namn");
   createInput(main, "productPrice", "Pris", "number");
   createInput(main, "productStock", "Stock", "number");
@@ -149,7 +154,7 @@ async function addProduct() {
     await showResult(response, "addResult");
   } catch (error) {
     console.error(error);
-    document.getElementById("addResult").innerHTML = `<p style="color:red">Något gick fel</p>`;
+    document.getElementById("addResult").innerHTML = `<p class="response-text fail" >Något gick fel</p>`;
   }
 }
 
@@ -188,7 +193,7 @@ async function deleteProduct() {
     await showResult(response, "deleteResult");
   } catch (error) {
     console.error(error);
-    document.getElementById("deleteResult").innerHTML = `<p style="color:red">Något gick fel</p>`;
+    document.getElementById("deleteResult").innerHTML = `<p class ="response-text fail">Något gick fel</p>`;
   }
 }
 
@@ -196,7 +201,7 @@ async function deleteProduct() {
 function showEditProduct() {
   const main = setupPage();
 
-  createTitle(main, "Redigera produkt");
+  createTitle(main, "Uppdatera produkt");
 
   createInput(main, "editProductId", "Produkt ID", "number");
   createInput(main, "editName", "Nytt namn");
@@ -249,6 +254,6 @@ async function editProduct() {
     await showResult(response, "editResult");
   } catch (error) {
     console.error(error);
-    document.getElementById("editResult").innerHTML = `<p style="color:red">Något gick fel</p>`;
+    document.getElementById("editResult").innerHTML = `<p class ="response-text fail">Något gick fel</p>`;
   }
 }

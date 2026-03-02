@@ -34,7 +34,7 @@ header {
   min-width: 100%;
 }
 
-#header-logo {
+.header-logo {
   height: 150px;
 }
 #header-wreapper {
@@ -272,13 +272,3 @@ input:focus {
 footer {
   padding: 30px;
 }
-
-/* .card-container {
-  display: flex;
-  flex-direction: column;
-  height: 200px;
-  width: 250px;
-  border: 1px solid black;
-  justify-content: space-between;
-  padding: 5px;
-} */

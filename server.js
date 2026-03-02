@@ -19,7 +19,7 @@ app.use(express.json());
 //Admin se lagersaldo för varje produkt
 app.get("/admin/products", (req, res) => {
   cn.query(
-    `SELECT name, stock
+    `SELECT product_id, name, stock
     FROM products`,
     (err, data) => {
       if (err) {

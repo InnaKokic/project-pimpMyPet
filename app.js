@@ -39,9 +39,16 @@ async function loadAllProducts() {
 // Hämtar värdet på search input och tar bort överflödigt whitespace
 searchButton.addEventListener("click", () => {
   const query = searchBar.value.trim();
-  if (query === "") return;
+  if (query === "") {
+    alert("Vänligen fyll i sökfält");
+  }
+  loadProducts(`${API}/products?search=${encodeURIComponent(query)}`);
+});
 
-  loadProducts(`http://127.0.0.1:8080/products?search=${encodeURIComponent(query)}`);
+searchBar.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    searchButton.click();
+  }
 });
 
 //Funktion med fetch till endpointen som hämtar in produkterna kopplade till varje kategori från /categories/:id
@@ -54,6 +61,9 @@ async function loadProductsByCategory(id) {
 
 async function loadProducts(url) {
   const res = await fetch(url);
+  if (res.status === 404) {
+    alert("Produkt finns ej");
+  }
   const data = await res.json();
 
   renderProducts(data);

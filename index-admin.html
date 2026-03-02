@@ -1,24 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-      <h1>Pimp My Pet - Admin View</h1>
-    </header>
-    <main>
-        <ul id="options">
-        <li><button onclick="getOrders()" class="category-button">View all orders</button></li>
-        <div id="orders"></div>
-        <li><button onclick="stockInfo()" class="category-button">Stock information</button></li>
-        <li><button onclick="showAddProduct()" class="category-button">Add product</button></li>
-        <li><button onclick="showEditProduct()" class="category-button">Edit product</button></li>
-        <li><button onclick="showDeleteProduct()" class="category-button">Remove product</button></li>
-        </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&family=Shadows+Into+Light+Two&display=swap"
+      rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Pimp my pet - Admin</title>
+    <link rel="stylesheet" href="adminStyle.css" />
+  </head>
+  <body>
+    <header></header>
+
+    <div id="admin-main">
+      <nav id="admin-nav">
+        <a href="index-admin.html"> <img class="header-logo" src="assets/icons/PimpMyPet-logo.png" alt="logo" /></a>
+
+        <div id="navBtn-wrapper">
+          <!-- <div id="orders"></div> -->
+          <button onclick="stockInfo()" class="admin-button">Lagerstatus</button>
+          <button onclick="getOrders()" class="admin-button">Se alla ordrar</button>
+          <button onclick="showAddProduct()" class="admin-button">Lägg till ny produkt</button>
+          <button onclick="showEditProduct()" class="admin-button">Uppdatera produkt</button>
+          <button onclick="showDeleteProduct()" class="admin-button">Ta bort produkt</button>
+        </div>
+      </nav>
+      <main class="admin-home">
+        <h1 class="admin-home-text">Välkommen till Pimp My Pets admin sida</h1>
+      </main>
+      <a id="store-btn" href="index.html"><img src="assets/icons/store-icon.png" alt="" /></a>
+    </div>
     <script src="admin.js"></script>
-</body>
+  </body>
 </html>
