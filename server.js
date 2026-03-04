@@ -262,12 +262,13 @@ app.get("/orders/:id", (req, res) => {
 
 // Slutföra köp / lägga order
 app.post("/orders/checkout", (req, res) => {
-  const { customer_id, items } = req.body;
+  const { customer_id, items } = req.body; // Plockar ut kund-id och items (varukorg) från request body
 
   if (!customer_id || !items || items.length === 0) {
     return res.status(400).send("Missing customer_id or items");
   }
 
+  //Startar transaktion
   cn.beginTransaction((err) => {
     if (err) return res.status(500).send(err.sqlMessage);
 
